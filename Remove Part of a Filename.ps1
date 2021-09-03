@@ -15,14 +15,14 @@ Dir *.mkv | rename-item -newname { $_.name  -replace "\]",")" }
 
 
 #CHANGE Filename to UPPERCASE
-Get-ChildItem -Path "X:\Downloads\Babylon 5 Complete\Season 5" -Filter *.mkv | % {Rename-Item $_.FullName -NewName ([string]$_.Name).ToUpper()}
+Get-ChildItem -Path "X:\Downloads\5" -Filter *.mkv | % {Rename-Item $_.FullName -NewName ([string]$_.Name).ToUpper()}
 
 
 #If Filename is in uppercase, you have to conmvert it to lowercase first, before you change it to TitleCase
 
 #CHANGE Filename to lowercase
-Get-ChildItem -Path "X:\Downloads\Babylon 5 Complete\Season 5" -Filter *.mkv | % {Rename-Item $_.FullName -NewName ([string]$_.Name).ToLower()}
+Get-ChildItem -Path "X:\Downloads\5" -Filter *.mkv | % {Rename-Item $_.FullName -NewName ([string]$_.Name).ToLower()}
 
 #CHANGE Filename to Title Case
 $text = [System.Threading.Thread]::CurrentThread.CurrentCulture.TextInfo
-Get-ChildItem -Path "M:\Stu\Soundtracks\Smokey & The Bandit 3" -Filter *.mp3 | Rename-Item -NewName { "$($text.ToTitleCase($_.BaseName))$($_.Extension)" }
+Get-ChildItem -Path "M:\3" -Filter *.mp3 | Rename-Item -NewName { "$($text.ToTitleCase($_.BaseName))$($_.Extension)" }
